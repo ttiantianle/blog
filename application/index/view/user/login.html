@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        blockquote, body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul { margin: 0;padding: 0;}
+        table{
+            height: 300px;
+            width: 500px;
+            margin: 50px auto;
+            border-collapse: collapse;
+			}
+        #password,#username,#captcha{
+              height: 100%;
+              border: hidden;
+              width: 100%;
+            font-size: 20px;
+          }
+
+        td{
+           align-content: center;
+        }
+    </style>
+</head>
+<body>
+<form name="form1" method="post" action="" class="form1" id="form1">
+  <table width="257" border="1" >
+    <tr>
+      <td width="99" height="49"><div align="center" id="test">账号：</div></td>
+      <td width="142"><label for="username"></label>
+      <input type="text" name="username" id="username" onblur="check_empty(this)"></td>
+    </tr>
+    <tr>
+      <td height="52"><div align="center">密码：</div></td>
+      <td><label for="password"></label>
+      <input type="text" name="password" id="password" onblur="check_empty(this)"></td>
+    </tr>
+    <tr>
+        <td height="71"><div><img src="{:captcha_src()}" alt="captcha" style="width:100%;" onclick="this.src='{:captcha_src()}'"/></div></td>
+        <td ><div align="center"><input id="captcha" name="captcha" type="text" onblur="check_empty(this)"/></div></td>
+<!--      <td><div>{:captcha_img()}</div></td>-->
+      
+    </tr>
+    <tr align="center">
+      <td colspan="2"><input type="submit" name="submit" id="submit" value="提交"></td>
+    </tr>
+  </table>
+</form>
+<script>
+    function check_empty(obj) {
+       //  var passObj = document.getElementById('password');
+       //  passObj.value = '1234567';
+       //  console.log(document.getElementById('test').innerHTML);
+       // //alert(userObj.value);
+        if (obj.value.length==0)
+        {
+            alert('不能为空');
+        }
+    }
+</script>
+</body>
+</html>
