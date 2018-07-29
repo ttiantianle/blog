@@ -1,0 +1,14 @@
+layout 布局
+需要在配置文件中开启配置
+'template'  =>  [
+        //开启layout_on
+        'layout_on'     =>  true,
+        //目录位置
+        'layout_name'   =>  'layout/layoutname',
+        //布局替换变量
+        'layout_item'   =>  '{__CONTENT__}'
+]
+
+{__CONTENT__}
+不使用布局的话
+页面顶部添加{__NOLAYOUT__}
