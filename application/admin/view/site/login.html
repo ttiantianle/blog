@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" media="screen" href="/static/css/style.css">
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-theme.css"/>
 </head>
 <body>
 <!--/static/img/-->
@@ -40,6 +42,7 @@
 <!-- scripts -->
 <script src="/static/js/particles.min.js"></script>
 <script src="/static/js/app.js"></script>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
     function hasClass(elem, cls) {
         cls = cls || '';
@@ -71,38 +74,62 @@
 
 
 //    使用ajax验证登录
-    function login(){
-        var xhr = new XMLHttpRequest();//ActiveXObject("Microsoft.XMLHTTP")
-        //todo 地址
-        xhr.open('POST',"{:url('Site/login')}");
-        //获取值
-        var username = document.getElementById('username').value;
-        var passwd = document.getElementById('passwd').value;
+//    function login(){
+//        var xhr = new XMLHttpRequest();//ActiveXObject("Microsoft.XMLHTTP")
+//        //todo 地址
+//        xhr.open('POST',"{:url('Site/login')}");
+//        //获取值
+//        var username = document.getElementById('username').value;
+//        var passwd = document.getElementById('passwd').value;
+//        //跨域？
+//        xhr.send('username='+username+'&passwd='+passwd);
+////        xhr.send();
+//        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//        xhr.onreadystatechange = function() {
+//            if(xhr.readyState == 4){
+//                if(xhr.status == 200){
+//                    //成功
+//                   var res = eval(xhr.responseText);
+//                   if(res.errorCode){
+//                       alert(res.msg);
+//                   }
+//                }
+//                else{
+//                    //失败
+//                    alert('ajax状态错误');
+//                }
+//            }
+//        }
+//    }
 
-//        console.log(username);
-//        console.log(passwd);
 
-        xhr.send('name='+username+'&passwd='+passwd);
-//        ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function () {
-            if(xhr.readyState == 4){
-                if(xhr.status == 200){
-                    //成功
-                    if(){
-
-                    }
-                    else{
-
-                    }
-                }
-                else{
-                    //失败
-                    alert('登录失败');
-                }
-            }
+    $('.login-button').onclick =  function() {
+        console.log('a');
+        if($('#username').val() == ""){
+            alert("用户名不能为空");
+            $('#username').focus();
+            return false;
         }
+        if($('#passwd').val() == ''){
+            alert("密码不能为空");
+            $('#passwd').focus();
+            return false;
+        }
+        $.ajax({
+            type:"POST",
+            url:"{:url('Site/login')}",
+            data:{
+                username:$('$username').val(),
+                passwd:$('#passwd').val()
+            },
+            dataType:"jsonp",
+            success:function (data) {
+                console.log(data);
+                return true;
+            }
+        });
     }
-    document.querySelector(".login-button").onclick = login();
+
 //    document.querySelector(".login-button").onclick = function(){
 //        addClass(document.querySelector(".login"), "active")
 //        setTimeout(function(){

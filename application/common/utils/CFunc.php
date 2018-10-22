@@ -8,17 +8,17 @@ class CFunc{
     /**
      * @return array
      */
-    public function params(){
+    public static function params(){
         $params = [];
         if($_REQUEST){
             $params = $_REQUEST;
         }
         return $params;
     }
-    public function returnjson($errCode = 0,$message = '',$arr = []){
+    public static function returnjson($errCode = "0",$message = '',$arr = []){
         $res = [];
         $res['errCode'] = $errCode;
-        $res['message'] = $message;
+        $res['msg'] = $message;
         $res['data'] = $arr;
         $call = isset($_REQUEST['callback']) ? $_REQUEST['callback'] : '';
         // echo json_encode($res);
@@ -29,7 +29,7 @@ class CFunc{
      * @param $str
      * @return string
      */
-    public function _encrypt($str){
+    public static function _encrypt($str){
         // 定义变量
         $key_base = "contentWindowHig";
         $iv_base = "contentDocuments";
@@ -48,7 +48,7 @@ class CFunc{
      * @param $str
      * @return string
      */
-   public function _decrypt($str){
+   public static function _decrypt($str){
         // 定义变量
         $key_base = "contentWindowHig";
         $iv_base = "contentDocuments";
@@ -62,12 +62,11 @@ class CFunc{
         $decode = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $cryptText, MCRYPT_MODE_CBC, $iv);
         return rtrim($decode);
     }
-
     /**
      * @param $arr
      * @return array
      */
-    public function decode_params($arr){
+    public static function decode_params($arr){
         if(!is_array($arr)){
             echo '参数不合法';
             exit();
