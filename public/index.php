@@ -15,6 +15,11 @@ namespace think;
 // 加载基础文件
 require __DIR__ . '/../thinkphp/base.php';
 
+//define('__CSS__',__DIR__.'/static/css/');
+//define('__IMG__',__DIR__.'/static/img/');
+//define('__JS__',__DIR__.'/static/js/');
+//define('__FONTS__',__DIR__.'/static/fonts/');
+//define('__UPLOAD__',__DIR__.'/static/upload/');
 // 支持事先使用静态方法设置Request对象和Config对象
 
 // 执行应用并响应

@@ -6,6 +6,8 @@ use think\Controller;
 class Site extends Controller
 {
     public function login(){
+//        echo __CSS__;
+
         return $this->fetch();
     }
 }
