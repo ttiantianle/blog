@@ -19,14 +19,14 @@
         <div class="login-center clearfix">
             <div class="login-center-img"><img src="/static/img/name.png"/></div>
             <div class="login-center-input">
-                <input type="text" name="" value="" placeholder="请输入您的用户名" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'"/>
+                <input type="text" name="username" id="username" value="" placeholder="请输入您的用户名" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'"/>
                 <div class="login-center-input-text">用户名</div>
             </div>
         </div>
         <div class="login-center clearfix">
             <div class="login-center-img"><img src="/static/img/password.png"/></div>
             <div class="login-center-input">
-                <input type="password" name=""value="" placeholder="请输入您的密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'"/>
+                <input type="password" name="passwd" id="passwd" value="" placeholder="请输入您的密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'"/>
                 <div class="login-center-input-text">密码</div>
             </div>
         </div>
@@ -62,21 +62,38 @@
             ele.className = newClass.replace(/^\s+|\s+$/g, '');
         }
     }
+//    document.querySelector(".login-button").onclick=function () {
+//        var username = document.getElementById('username').value;
+//        var passwd = document.getElementById('passwd').value;
+//        console.log(username);
+//        console.log(passwd);
+//    }
+
+
 //    使用ajax验证登录
     function login(){
         var xhr = new XMLHttpRequest();//ActiveXObject("Microsoft.XMLHTTP")
         //todo 地址
-        xhr.open('POST','');
+        xhr.open('POST',"{:url('Site/login')}");
         //获取值
-        var username = '';
-        var passwd = '';
+        var username = document.getElementById('username').value;
+        var passwd = document.getElementById('passwd').value;
+
+//        console.log(username);
+//        console.log(passwd);
+
         xhr.send('name='+username+'&passwd='+passwd);
 //        ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
             if(xhr.readyState == 4){
                 if(xhr.status == 200){
                     //成功
-                    console.log('登录成功');
+                    if(){
+
+                    }
+                    else{
+
+                    }
                 }
                 else{
                     //失败
@@ -85,20 +102,21 @@
             }
         }
     }
-    document.querySelector(".login-button").onclick = function(){
-        addClass(document.querySelector(".login"), "active")
-        setTimeout(function(){
-            addClass(document.querySelector(".sk-rotating-plane"), "active")
-            document.querySelector(".login").style.display = "none"
-        },800)
-        setTimeout(function(){
-            removeClass(document.querySelector(".login"), "active")
-            removeClass(document.querySelector(".sk-rotating-plane"), "active")
-            document.querySelector(".login").style.display = "block"
-            alert("登录成功")
-
-        },5000)
-    }
+    document.querySelector(".login-button").onclick = login();
+//    document.querySelector(".login-button").onclick = function(){
+//        addClass(document.querySelector(".login"), "active")
+//        setTimeout(function(){
+//            addClass(document.querySelector(".sk-rotating-plane"), "active")
+//            document.querySelector(".login").style.display = "none"
+//        },800)
+//        setTimeout(function(){
+//            removeClass(document.querySelector(".login"), "active")
+//            removeClass(document.querySelector(".sk-rotating-plane"), "active")
+//            document.querySelector(".login").style.display = "block"
+//            alert("登录成功")
+//
+//        },5000)
+//    }
 </script>
 </body>
 </html>
