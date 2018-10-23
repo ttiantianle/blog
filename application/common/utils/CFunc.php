@@ -21,7 +21,7 @@ class CFunc{
         $res['msg'] = $message;
         $res['data'] = $arr;
         $call = isset($_REQUEST['callback']) ? $_REQUEST['callback'] : '';
-        // echo json_encode($res);
+//         echo json_encode($res);
         echo $call."(".json_encode($res).")";
     }
 

@@ -65,15 +65,10 @@
             ele.className = newClass.replace(/^\s+|\s+$/g, '');
         }
     }
-//    document.querySelector(".login-button").onclick=function () {
-//        var username = document.getElementById('username').value;
-//        var passwd = document.getElementById('passwd').value;
-//        console.log(username);
-//        console.log(passwd);
-//    }
 
 
 //    使用ajax验证登录
+
 //    function login(){
 //        var xhr = new XMLHttpRequest();//ActiveXObject("Microsoft.XMLHTTP")
 //        //todo 地址
@@ -103,13 +98,15 @@
 //    }
 
 
-    $('.login-button').onclick =  function() {
-        console.log('a');
+//    $('.login-button')[0].onclick = check_login();
+
+        function check_login() {
         if($('#username').val() == ""){
             alert("用户名不能为空");
             $('#username').focus();
             return false;
         }
+
         if($('#passwd').val() == ''){
             alert("密码不能为空");
             $('#passwd').focus();
@@ -118,32 +115,41 @@
         $.ajax({
             type:"POST",
             url:"{:url('Site/login')}",
+            dataType:"text",
             data:{
-                username:$('$username').val(),
+                username:$('#username').val(),
                 passwd:$('#passwd').val()
             },
-            dataType:"jsonp",
             success:function (data) {
                 console.log(data);
-                return true;
+                var res = eval(data);
+                if (!res.errorCode){
+                    location.href = "{:url('blog/index')}";
+                }
+                else{
+                }
+//                return true;
+            },
+            error:function () {
+                console.log('error');
             }
         });
     }
-
-//    document.querySelector(".login-button").onclick = function(){
-//        addClass(document.querySelector(".login"), "active")
-//        setTimeout(function(){
-//            addClass(document.querySelector(".sk-rotating-plane"), "active")
-//            document.querySelector(".login").style.display = "none"
-//        },800)
-//        setTimeout(function(){
-//            removeClass(document.querySelector(".login"), "active")
-//            removeClass(document.querySelector(".sk-rotating-plane"), "active")
-//            document.querySelector(".login").style.display = "block"
+    document.querySelector(".login-button").onclick = function(){
+        addClass(document.querySelector(".login"), "active")
+        setTimeout(function(){
+            addClass(document.querySelector(".sk-rotating-plane"), "active")
+            document.querySelector(".login").style.display = "none"
+        },800)
+        setTimeout(function(){
+            removeClass(document.querySelector(".login"), "active")
+            removeClass(document.querySelector(".sk-rotating-plane"), "active")
+            document.querySelector(".login").style.display = "block"
 //            alert("登录成功")
-//
-//        },5000)
-//    }
+            check_login();
+
+        },3000)
+    }
 </script>
 </body>
 </html>
