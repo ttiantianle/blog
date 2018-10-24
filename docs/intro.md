@@ -8,4 +8,6 @@ public/static/js|js文件
 public/static/img|图片文件
 public/static/upload |上传的图片文件
 public/static/fonts|字体
-## 
+## 后台
+### layui
+使用layui框架来搭建后台

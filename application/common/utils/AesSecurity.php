@@ -3,6 +3,7 @@ namespace app\common\utils;
 /**
  * Class AesSecurity 加密类
  * @package app\common\utils
+ * 主要是与前端交互 目前仅支持AES-128-CBC  AES-256-CBC
  */
 class AesSecurity
 {
@@ -17,6 +18,15 @@ class AesSecurity
     private static $options = OPENSSL_RAW_DATA;
     private static $iv = 'contentDocuments';
 
+    public static function getKey()
+    {
+        return self::$key;
+    }
+    public function __construct()
+    {
+        self::$key = md5(self::$key,true);
+    }
+
     public static function setMethod($method){
         self::$method = $method;
     }
@@ -29,12 +39,11 @@ class AesSecurity
     public static function setOptions($options){
         self::$options = $options;
     }
-    public static function getAllMethod(){
-        $arr = openssl_get_cipher_methods();
-        return $arr;
-    }
+
     public static function _encrypt($input){
-        $data = openssl_encrypt(base64_encode($input),self::$method,self::$key,self::$options,self::$iv);
+        $key = substr(md5(self::$key),0,16);
+        $iv = substr(md5(self::$iv),0,16);
+        $data = base64_encode(openssl_encrypt($input,"AES-128-CBC",$key,OPENSSL_RAW_DATA,$iv));
         return $data;
     }
 
@@ -44,8 +53,11 @@ class AesSecurity
      * todo rtrim
      */
     public static function _decrypt($input){
-        $data = openssl_decrypt($input,self::$method,self::$key,self::$options,self::$iv);
-        $data = base64_decode($data);
+        $key = substr(md5(self::$key),0,16);
+        $iv = substr(md5(self::$iv),0,16);
+        $data = openssl_decrypt(base64_decode($input),"AES-128-CBC",$key,OPENSSL_RAW_DATA,$iv);
         return $data;
     }
+
+
 }

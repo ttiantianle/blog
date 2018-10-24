@@ -36,6 +36,21 @@ class Site extends Controller
 //        echo '<br>';
 //        echo AesSecurity::_decrypt($c,'123456');
 //            var_dump(AesSecurity::getAllMethod());
+//        $a = '/uMmBzM2Me1f7aGT0+Tq3Q==';
+//        $a = 'msg';
+//        echo AesSecurity::_encrypt($a);
+//        echo '<hr>';
+//        echo AesSecurity::_decrypt(AesSecurity::_encrypt($a));
+//        echo AesSecurity::_decrypt('/uMmBzM2Me1f7aGT0+Tq3Q==');
+//        $key = md5('contentWindowHig');
+//        AesSecurity::setKey($key);
+//        $this->assign('a',AesSecurity::getKey());
+//        echo AesSecurity::_encrypt('msg');
+//        echo AesSecurity::_decrypt('evD5EE8QGSWpuqzhDFaamw==');
+//        die();
         return $this->fetch();
+
     }
+
+
 }
