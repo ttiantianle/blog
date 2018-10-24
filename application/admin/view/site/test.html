@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript" src="/components/aes.js"></script>
+<script type="text/javascript" src="/components/cipher-core.js"></script>
+<script type="text/javascript" src="/components/enc-base64.js"></script>
+<script type="text/javascript" src="/components/enc-utf16.js"></script>
+<script type="text/javascript" src="/components/evpkdf.js"></script>
+<script type="text/javascript" src="/components/format-hex.js"></script>
+<script type="text/javascript" src="/components/hmac.js"></script>
+<script type="text/javascript" src="/components/lib-typedarrays.js"></script>
+<script type="text/javascript" src="/components/md5.js"></script>
+<script type="text/javascript" src="/components/mode.js"></script>
+<script type="text/javascript" src="/components/pad.js"></script>
+<script type="text/javascript" src="/components/pbkdf2.js"></script>
+<script type="text/javascript" src="/components/rabbit-legacy.js"></script>
+<script type="text/javascript" src="/components/rabbit.js"></script>
+<script type="text/javascript" src="/components/rc4.js"></script>
+<script type="text/javascript" src="/components/ripemd160.js"></script>
+<script type="text/javascript" src="/components/sha1.js"></script>
+<script type="text/javascript" src="/components/sha3.js"></script>
+<script type="text/javascript" src="/components/sha224.js"></script>
+<script type="text/javascript" src="/components/sha256.js"></script>
+<script type="text/javascript" src="/components/sha384.js"></script>
+<script type="text/javascript" src="/components/sha512.js"></script>
+<script type="text/javascript" src="/components/tripledes.js"></script>
+<script type="text/javascript" src="/components/x64-core.js"></script>
+
+<script type="text/javascript">
+    CryptoJS.require("enc-base64");
+    //编码
+    var src = CryptoJS.enc.Utf8.parse("anlige");
+    var base64string = CryptoJS.enc.Base64.stringify(src);
+    F.echo(base64string.toString());
+
+    //解码
+    var base64string = CryptoJS.enc.Base64.parse("YW5saWdl");
+    F.echo(CryptoJS.enc.Utf8.stringify(base64string));
+    }
+</script>

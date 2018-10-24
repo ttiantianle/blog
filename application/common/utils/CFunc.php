@@ -26,43 +26,6 @@ class CFunc{
     }
 
     /**
-     * @param $str
-     * @return string
-     */
-    public static function _encrypt($str){
-        // 定义变量
-        $key_base = "contentWindowHig";
-        $iv_base = "contentDocuments";
-
-        // 加密前处理
-        $key = md5($key_base);
-        $iv = $iv_base;
-        // 加密
-        $cryptText = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $str, MCRYPT_MODE_CBC, $iv);
-        $res = base64_encode($cryptText);
-
-        return $res;
-    }
-
-    /**
-     * @param $str
-     * @return string
-     */
-   public static function _decrypt($str){
-        // 定义变量
-        $key_base = "contentWindowHig";
-        $iv_base = "contentDocuments";
-
-        // 加密前处理
-        $key = md5($key_base);
-        $iv = $iv_base;
-
-        // 解密
-        $cryptText = base64_decode($str);
-        $decode = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $cryptText, MCRYPT_MODE_CBC, $iv);
-        return rtrim($decode);
-    }
-    /**
      * @param $arr
      * @return array
      */

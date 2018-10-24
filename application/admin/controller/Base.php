@@ -5,10 +5,18 @@ use think\Db;
 
 class Base extends Controller
 {
+    /**
+     * @var array 指定其他方法执行前的操作（方法）
+     */
     protected $beforeActionList = [
 //        指定before为其他方法的前置方法
         'before'
     ];
+
+    /**
+     * @return bool|mixed
+     * @desc 检测是否登陆
+     */
     public function before()
     {
         if (session('username')){

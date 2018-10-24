@@ -5,6 +5,7 @@ use think\Controller;
 use think\facade\Request;
 use app\common\utils\CFunc;
 use app\admin\model\User;
+use app\common\utils\AesSecurity;
 class Site extends Controller
 {
     public function login(){
@@ -26,6 +27,15 @@ class Site extends Controller
                die();
            }
        }
+        return $this->fetch();
+    }
+    public function test(){
+//        echo 'abc<br>';
+//        $c = AesSecurity::_encrypt('abc','123456');
+//        echo $c;
+//        echo '<br>';
+//        echo AesSecurity::_decrypt($c,'123456');
+//            var_dump(AesSecurity::getAllMethod());
         return $this->fetch();
     }
 }
