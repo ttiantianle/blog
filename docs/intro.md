@@ -11,3 +11,7 @@ public/static/fonts|字体
 ## 后台
 ### layui
 使用layui框架来搭建后台
+
+## 拓展
+### 前后端数据传输
+> 采用的是aes加密传输
