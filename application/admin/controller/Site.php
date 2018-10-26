@@ -18,6 +18,7 @@ class Site extends Controller
 //            $res = User::where(['user_name'=>['=',$user],'password'=>['eq',$passwd]])->select()->toArray();
             $res = User::where(['user_name'=>['=',$user],'password'=>['eq',$passwd]])->count();
            if ($res){
+                session('username',$user);
                 CFunc::returnjson("0",'登陆成功');
                 die();
 //               $this->redirect('blog/index');

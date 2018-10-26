@@ -1,4 +1,5 @@
-# bootstrap项目中的使用
+# 使用的插件
+## bootstrap项目中的使用
 ### bootstrap
 ```
 #下载生产环境的版本
@@ -19,3 +20,17 @@ http://jquery.com/
 - 这里是直接引入的bootstrap与jquery,所以将这些文件上传到了bootstrap
 - 其实这类文件是没有必要上传的
 - 更好的方式是使用composer 安装bootstrap，只需上传composer.json文件即可无需上传整个bootstrap，节省云空间，加快项目clone
+
+## layui
+后台的布局使用的是layui
+### 安装
+```
+npm install <>
+```
+
+## cryptoJS
+出于前后端交互安全的考虑，使用了aes加密/解密方式
+### 安装
+```
+npm install <>
+```

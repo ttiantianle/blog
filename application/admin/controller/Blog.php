@@ -1,14 +1,15 @@
 <?php
 namespace app\admin\controller;
 use app\admin\controller\Base;
-class Blog //extends Base
+use think\Controller;
+
+class Blog extends Controller
 {
     public function test(){
        echo config('default_return_type');
     }
     public function index(){
-        echo '这是首页';
-        die();
+      return $this->fetch();
     }
 
     /**
@@ -17,6 +18,7 @@ class Blog //extends Base
      * 富文本编辑器
      */
     public function add(){
+        return $this->fetch();
     }
 
     /**
