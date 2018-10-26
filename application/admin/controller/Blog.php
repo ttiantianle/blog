@@ -13,11 +13,16 @@ class Blog extends Controller
     }
 
     /**
-     * 添加博客
      * markdown编辑器
+     */
+    public function markdown(){
+        return $this->fetch();
+    }
+
+    /**
      * 富文本编辑器
      */
-    public function add(){
+    public function rich(){
         return $this->fetch();
     }
 

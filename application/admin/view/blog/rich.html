@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="/node_modules/layui-src/src/css/layui.css">
+    <link rel="stylesheet" href="/node_modules/kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" href="/node_modules/kindeditor/plugins/code/prettify.css" />
+    <style>
+        .layui-body{display: flex}
+        .editForm{flex: 1;margin: 50px 100px;}
+    </style>
+
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">MyBlog 管理</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="">前台</a></li>
+            <li class="layui-nav-item"><a href="">备忘录</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">工具箱</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">日期</a></dd>
+                    <dd><a href="">天气预报</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img layui-anim layui-anim-loop">
+                    {$Think.session.username}
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="{:url('site/login')}">退出</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item"><a href="">首页</a></li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">新建博客</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">富文本</a></dd>
+                        <dd><a href="javascript:;">markdodn</a></dd>
+                        <!--<dd><a href="">超链接</a></dd>-->
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">我的博客</a></li>
+                <li class="layui-nav-item"><a href="">分类管理</a></li>
+                <li class="layui-nav-item"><a href="">树洞</a></li>
+                <li class="layui-nav-item"><a href="">独自听歌</a></li>
+                <li class="layui-nav-item"><a href="">独自观影</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <form name="example" method="post" action="demo.php" class="editForm">
+            <textarea name="content1" style="width:100%;height:300px;">
+            </textarea>
+            <br />
+            <input type="submit" name="button" value="提交内容" /> (提交快捷键: Ctrl + Enter)
+        </form>
+
+        <!--<div style="padding: 15px;">内容主体区域</div>-->
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © copyright 版权所有
+    </div>
+</div>
+<script src="/node_modules/layui-src/src/layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+<script charset="utf-8" src="/node_modules/kindeditor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="/node_modules/kindeditor/lang/zh-CN.js"></script>
+<script charset="utf-8" src="/node_modules/kindeditor/plugins/code/prettify.js"></script>
+<script>
+    KindEditor.ready(function(K) {
+        var editor1 = K.create('textarea[name="content1"]', {
+            cssPath : '/node_modules/kindeditor/plugins/code/prettify.css',
+            uploadJson : '/node_modules/kindeditor/php/upload_json.php',
+            fileManagerJson : '/node_modules/kindeditor/php/file_manager_json.php',
+            allowFileManager : true,
+            afterCreate : function() {
+                var self = this;
+                K.ctrl(document, 13, function() {
+                    self.sync();
+                    K('form[name=example]')[0].submit();
+                });
+                K.ctrl(self.edit.doc, 13, function() {
+                    self.sync();
+                    K('form[name=example]')[0].submit();
+                });
+            }
+        });
+        prettyPrint();
+    });
+</script>
+
+</body>
+</html>

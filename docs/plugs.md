@@ -34,3 +34,13 @@ npm install <>
 ```
 npm install <>
 ```
+## 编辑器的选用
+### kindeditor (富文本编辑器)
+```
+#  官网下载地址http://kindeditor.net/down.php
+#  解压 拷贝到public或node_modules目录下
+```
+### mavon (markdown编辑器)
+```
+npm install mavon-editor --save
+```
