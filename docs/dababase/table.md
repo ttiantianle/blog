@@ -13,7 +13,8 @@
 `edit` |  编辑类别，0富文本 1markdown
 `private` | 1私密，0公开
 `copy` | 0原创，1拷贝
-  
+ title | 名称
+ 
 ## category
 字段 | 描述
 ---|---
