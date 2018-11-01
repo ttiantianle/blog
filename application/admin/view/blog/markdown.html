@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>个人博客</title>
     <link rel="stylesheet" href="/node_modules/layui-src/src/css/layui.css">
+    <!--markdown css-->
+    <link type="text/css" rel="stylesheet" href="/node_modules/a-markdown/css/font-awesome/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="/node_modules/a-markdown/css/codemirror.css">
+    <link type="text/css" rel="stylesheet" href="/node_modules/a-markdown/css/highlight/xcode.css">
+    <link type="text/css" rel="stylesheet" href="/node_modules/a-markdown/css/amd.css">
+    <link type="text/css" rel="stylesheet" href="/node_modules/a-markdown/css/markdown.css">
+    <!--markdown css-->
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -62,7 +69,7 @@
 
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;"> 开发中</div>
+        <div id="amd-editor"></div>
     </div>
 
     <div class="layui-footer">
@@ -71,12 +78,33 @@
     </div>
 </div>
 <script src="/node_modules/layui-src/src/layui.js"></script>
+<!--markdown js-->
+<script src="/node_modules/a-markdown/js/codemirror/lib/codemirror.js"></script>
+<script src="/node_modules/a-markdown/js/codemirror/mode/markdown/markdown.js"></script>
+<script src="/node_modules/a-markdown/js/hogan-3.0.1.min.js"></script>
+<script src="/node_modules/a-markdown/js/marked-0.3.2.min.js"></script>
+<script src="/node_modules/a-markdown/js/highlight-8.1.0.min.js"></script>
+<script src="/node_modules/a-markdown/js/pie/pie.js"></script>
+<script src="/node_modules/a-markdown/js/pie/unit.js"></script>
+<script src="/node_modules/a-markdown/js/pie/amarkdown.js"></script>
+<!--markdown js-->
+
 <script>
     //JavaScript代码区域
     layui.use('element', function(){
         var element = layui.element;
     });
-
+    //markdown编辑器
+    (function (PIE) {
+        window.addEventListener('load', function () {
+            PIE.makeAMarkdown(document.getElementById('amd-editor'), {
+                imgAction: '/image',
+                pubAction: '/',
+                titleName: 'title',
+                textName: 'text'
+            });
+        });
+    }(PIE));
 </script>
 </body>
 </html>
