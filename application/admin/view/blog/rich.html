@@ -75,17 +75,17 @@
 
 
             <!--<label ></label>-->
-            <input id="title" placeholder="请输入标题" class="form-control"/>
+            <input id="title" placeholder="请输入标题" class="form-control" style="margin-bottom: 10px;"/>
             <!--文本域-->
-            <textarea name="content1" class="form-control" style="height:300px;">
+            <textarea name="content1" class="form-control" style="width:100%;height:300px;">
             </textarea>
             <br />
 
             <!--文章信息-->
             <div class="form-group" style="display: flex">
-                <div style="flex: 1">
+                <div style="margin-right: 20px;">
                     <label for="cate_name" style="display: inline-block">选择分类：</label>
-                    <select class="form-control" id="cate_name" style="width: auto;display: inline-block">
+                    <select class="form-control" id="cate_name" style="width: 150px;display: inline-block">
                         <option>php</option>
                         <option>javascript</option>
                         <option>python</option>
@@ -93,9 +93,9 @@
                         <option>正则表达式</option>
                     </select>
                 </div>
-                <div style="flex: 1">
+                <div>
                     <label for="copy" style="">文章类型：</label>
-                    <select class="form-control" id="copy" style="width: auto;display: inline-block">
+                    <select class="form-control" id="copy" style="width: 150px;display: inline-block">
                         <option>原创</option>
                         <option>转载</option>
                     </select>
@@ -104,11 +104,11 @@
 
             <!--添加标签-->
             <div class="form-group">
-                <label for="keywords" style="display: inline-block">标签：</label>
+                <label for="keywords" style="display: inline-block">文章标签：</label>
                 <input type="text" class="form-control" placeholder="文本输入" id="keywords" style="width: auto;display: inline-block">
             </div>
             <!--文章私密-->
-           <div>
+           <div style="margin-bottom: 20px">
                <label class="radio-inline">
                    <input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="" checked> 公开
                </label>
