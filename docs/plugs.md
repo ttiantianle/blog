@@ -42,5 +42,6 @@ npm install <>
 ```
 ### mavon (markdown编辑器)
 ```
-npm install mavon-editor --save
+＃npm install mavon-editor --save
+选择的是a-markdown
 ```
