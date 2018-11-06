@@ -1,0 +1,42 @@
+</div>
+
+<div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © copyright 版权所有
+</div>
+</div>
+<script src="/node_modules/layui-src/src/layui.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+<script charset="utf-8" src="/node_modules/kindeditor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="/node_modules/kindeditor/lang/zh-CN.js"></script>
+<script charset="utf-8" src="/node_modules/kindeditor/plugins/code/prettify.js"></script>
+<script>
+    KindEditor.ready(function(K) {
+        var editor1 = K.create('textarea[name="content1"]', {
+            cssPath : '/node_modules/kindeditor/plugins/code/prettify.css',
+            uploadJson : '/node_modules/kindeditor/php/upload_json.php',
+            fileManagerJson : '/node_modules/kindeditor/php/file_manager_json.php',
+            allowFileManager : true,
+            afterCreate : function() {
+                var self = this;
+                K.ctrl(document, 13, function() {
+                    self.sync();
+                    K('form[name=example]')[0].submit();
+                });
+                K.ctrl(self.edit.doc, 13, function() {
+                    self.sync();
+                    K('form[name=example]')[0].submit();
+                });
+            }
+        });
+        prettyPrint();
+    });
+</script>
+</body>
+</html>
+<!--->

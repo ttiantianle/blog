@@ -6,7 +6,8 @@ use think\Controller;
 class Blog extends Controller
 {
     public function test(){
-       echo config('default_return_type');
+//       echo config('default_return_type');
+        return $this->fetch();
     }
     public function index(){
       return $this->fetch();
