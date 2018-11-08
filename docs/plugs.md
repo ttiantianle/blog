@@ -45,3 +45,9 @@ npm install <>
 ＃npm install mavon-editor --save
 选择的是a-markdown
 ```
+### tcpdf
+```
+# 安装tcpdf
+composer require tecnickcom/tcpdf
+# common CExport公共函数
+``` 

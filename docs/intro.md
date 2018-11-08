@@ -16,3 +16,7 @@ public/static/fonts|字体
 ## 拓展
 ### 前后端数据传输
 > 采用的是aes加密传输
+### CExport
+> pdf使用的是tcpdf，excel使用的是原生的方法
+#### exportToPdf
+#### exportToExcel

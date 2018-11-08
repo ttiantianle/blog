@@ -1,83 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>个人博客</title>
-    <link rel="stylesheet" href="/node_modules/layui-src/src/css/layui.css">
-    <!--markdown css-->
+{include file="header"}
+<!--markdown css-->
     <link type="text/css" rel="stylesheet" href="/node_modules/a-markdown/css/font-awesome/css/font-awesome.css">
     <link type="text/css" rel="stylesheet" href="/node_modules/a-markdown/css/codemirror.css">
     <link type="text/css" rel="stylesheet" href="/node_modules/a-markdown/css/highlight/xcode.css">
     <link type="text/css" rel="stylesheet" href="/node_modules/a-markdown/css/amd.css">
     <link type="text/css" rel="stylesheet" href="/node_modules/a-markdown/css/markdown.css">
     <!--markdown css-->
-</head>
-<body class="layui-layout-body">
-<div class="layui-layout layui-layout-admin">
-    <div class="layui-header">
-        <div class="layui-logo">MyBlog 管理</div>
-        <!-- 头部区域（可配合layui已有的水平导航） -->
-        <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="">前台</a></li>
-            <li class="layui-nav-item"><a href="">备忘录</a></li>
-            <li class="layui-nav-item">
-                <a href="javascript:;">工具箱</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">日期</a></dd>
-                    <dd><a href="">天气预报</a></dd>
-                </dl>
-            </li>
-        </ul>
-        <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item">
-                <a href="javascript:;">
-                    <!--<div class="layui-anim layui-anim-loop layui-nav-img"><audio src="song.ogg">一曲相思-半阳</audio></div>-->
-                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img layui-anim layui-anim-loop">
-                    {$Think.session.username}
-                </a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
-                    <dd><a href="">安全设置</a></dd>
-                </dl>
-            </li>
-            <li class="layui-nav-item"><a href="{:url('site/login')}">退出</a></li>
-        </ul>
-    </div>
-
-    <div class="layui-side layui-bg-black">
-        <div class="layui-side-scroll">
-            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-                <li class="layui-nav-item"><a href="">首页</a></li>
-                <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;">新建博客</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">富文本</a></dd>
-                        <dd><a href="javascript:;">markdodn</a></dd>
-                        <!--<dd><a href="">超链接</a></dd>-->
-                    </dl>
-                </li>
-                <li class="layui-nav-item"><a href="">我的博客</a></li>
-                <li class="layui-nav-item"><a href="">分类管理</a></li>
-                <li class="layui-nav-item"><a href="">树洞</a></li>
-                <li class="layui-nav-item"><a href="">独自听歌</a></li>
-                <li class="layui-nav-item"><a href="">独自观影</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="layui-body">
         <!-- 内容主体区域 -->
         <div id="amd-editor"></div>
-    </div>
-
-    <div class="layui-footer">
-        <!-- 底部固定区域 -->
-        © copyright 版权所有
-    </div>
-</div>
-<script src="/node_modules/layui-src/src/layui.js"></script>
 <!--markdown js-->
 <script src="/node_modules/a-markdown/js/codemirror/lib/codemirror.js"></script>
 <script src="/node_modules/a-markdown/js/codemirror/mode/markdown/markdown.js"></script>
@@ -90,10 +20,6 @@
 <!--markdown js-->
 
 <script>
-    //JavaScript代码区域
-    layui.use('element', function(){
-        var element = layui.element;
-    });
     //markdown编辑器
     (function (PIE) {
         window.addEventListener('load', function () {
@@ -106,8 +32,4 @@
         });
     }(PIE));
 </script>
-</body>
-</html>
-<script src="/node_modules/dist/vue.js"></script>
-<script>
-</script>
+{include file="footer"}

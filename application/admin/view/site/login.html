@@ -121,12 +121,14 @@
                 passwd:$('#passwd').val()
             },
             success:function (data) {
-                console.log(data);
+//                console.log(data);
                 var res = eval(data);
-                if (!res.errorCode){
+                console.log(res);
+                if (res.errorCode == 0){
                     location.href = "{:url('blog/index')}";
                 }
                 else{
+                    alert("账号不存在或密码错误");
                 }
 //                return true;
             },
@@ -148,7 +150,7 @@
 //            alert("登录成功")
             check_login();
 
-        },3000)
+        },500)
     }
 </script>
 </body>
