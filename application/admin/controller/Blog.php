@@ -3,6 +3,8 @@ namespace app\admin\controller;
 use app\admin\controller\Base;
 use think\Controller;
 use app\common\utils\CExport;
+use think\Log;
+
 class Blog extends Controller
 {
     public function test(){
@@ -52,7 +54,7 @@ class Blog extends Controller
      * pdf
      */
     public function pdf(){
-        $str = "这是一个测试的pdf\n真的只是测试";
-        CExport::exportToPdf($str,false);
+//        $str = "这是一个测试的pdf\n真的只是测试";
+//        CExport::exportToPdf($str,false);
     }
 }
