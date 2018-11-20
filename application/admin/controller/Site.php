@@ -6,6 +6,8 @@ use think\facade\Request;
 use app\common\utils\CFunc;
 use app\admin\model\User;
 use app\common\utils\AesSecurity;
+use app\common\utils\RsaSecurity;
+
 class Site extends Controller
 {
     public function login(){
@@ -31,6 +33,23 @@ class Site extends Controller
         return $this->fetch();
     }
     public function test(){
+//        file_exists(dirname(__DIR__.'/id_rsa')) or die('不存在');
+//        $private_key = 'id_rsa'; // 私钥路径
+//        $public_key = 'id_rsa.pub'; // 公钥路径
+//
+//        $rsa = new RsaSecurity($private_key, $public_key);
+//
+//        $origin_data = '这是一条测试数据';
+//
+//        $ecryption_data = $rsa->privEncrypt($origin_data);
+//
+//        $decryption_data = $rsa->publicDecrypt($ecryption_data);
+//
+//        echo '私钥加密后的数据为：' . $ecryption_data;
+//        echo PHP_EOL;
+//        echo '公钥解密后的数据为: ' . $decryption_data;
+//        echo PHP_EOL;
+
 //        echo 'abc<br>';
 //        $c = AesSecurity::_encrypt('abc','123456');
 //        echo $c;
@@ -49,7 +68,7 @@ class Site extends Controller
 //        echo AesSecurity::_encrypt('msg');
 //        echo AesSecurity::_decrypt('evD5EE8QGSWpuqzhDFaamw==');
 //        die();
-        return $this->fetch();
+//        return $this->fetch();
 
     }
 

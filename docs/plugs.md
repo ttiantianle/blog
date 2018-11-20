@@ -27,9 +27,12 @@ http://jquery.com/
 ```
 npm install <>
 ```
-
-## cryptoJS
+## 加密
+### cryptoJS
 出于前后端交互安全的考虑，使用了aes加密/解密方式
+
+### rsa加密
+
 ### 安装
 ```
 npm install <>
@@ -39,6 +42,12 @@ npm install <>
 ```
 #  官网下载地址http://kindeditor.net/down.php
 #  解压 拷贝到public或node_modules目录下
+
+```
+### ueditor（富文本编辑器）
+```
+#下载地址 http://fex.baidu.com/ueditor/#dev-bale_width_grunt
+
 ```
 ### mavon (markdown编辑器)
 ```
