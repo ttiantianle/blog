@@ -2,6 +2,7 @@
 namespace app\admin\controller;
 use think\Controller;
 use think\Db;
+use think\facade\Request;
 
 class Base extends Controller
 {
